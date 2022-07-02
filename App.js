@@ -1,11 +1,16 @@
-import { StatusBar } from 'expo-status-bar';
+//import { StatusBar } from 'expo-status-bar';
+import react from 'react';
+
 import { StyleSheet, Text, View } from 'react-native';
+import { Button } from 'react-native-web';
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+  {/* <Text>Bonjour Daouda Camus !</Text> */}
+    <Text></Text>
+     <Button title="+1"/>
+      
     </View>
   );
 }
