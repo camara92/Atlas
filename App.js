@@ -1,22 +1,32 @@
-import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import React, {useState} from "react";
+import { View, Text, StyleSheet, Button } from "react-native";
 //const name= "Daouda"; 
-
+// accessibilityLabel="Learn more about this purple button" : personne non voyant 
+// event avec btn 
 
 export default function App(){
-  const getNames=(firstname, secondname, thirdname)=>{
-
-   // return fistname+"", secondname +"", thirdnaame +""
-   return `${firstname} ${secondname}  ${thirdname}` ;
+ 
+    const obj = {
+      name: "CAMARA",
+      age: 25
+    }
+    const [info,setInfo ]= useState(obj); 
+    const handlePress =()=>{
+      setInfo({
+        name:"Daouda", age: 27
+      })
+    }
+   return(
+    <View style={styles.wrapper}>
+      <Text style={styles.textFS20}>Nom : {info.name}  </Text>
+      <Text style={styles.textFS20}>Age : {info.age} </Text>
+      <Button title="Cliquer ici " onPress={handlePress} >
+      </Button>
+    </View>
+   )
   
   };
-  return (
- <Text style={styles.wrapper}>Je m'appelle  {getNames("Daouda", "CAMARA", "Atlas")}.</Text>
-  );
-  } 
-  // différentes propriétés styles par des variables js 
-  //creation des styles sous formes de classes styles 
-  //en react native les propriétés ne sont cependant héritables comme dans le cas du hrml css classique 
+ 
 
   const styles = StyleSheet.create({
     wrapper: {
@@ -26,5 +36,6 @@ export default function App(){
     textTwo: {fontFamily:"Arial", fontWeight: "bold", color: "white"}, 
     textThree: {fontFamily:"Times New Roman", color: "red"},
     view1: {backgroundColor: "green"}, 
-    view2: {backgroundColor: "blue"}
+    view2: {backgroundColor: "blue"},
+    textFS20: {fontSize: 20}
   })
