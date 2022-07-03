@@ -20,8 +20,13 @@ export default function App(){
     <View style={styles.wrapper}>
       <Text style={styles.textFS20}>Nom : {info.name}  </Text>
       <Text style={styles.textFS20}>Age : {info.age} </Text>
-      <Button title="Cliquer ici " onPress={handlePress} >
-      </Button>
+      {/* <Button title="Cliquer ici " onPress={handlePress}/ > */}
+
+      <Button title="Cliquer ici " onPress={ ()=> setInfo({
+        name:"KingLife", age:25
+        
+      })}/ >
+   
     </View>
    )
   
