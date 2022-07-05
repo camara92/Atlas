@@ -1,51 +1,70 @@
 import { useState } from 'react';
-import { StyleSheet, Text, View, TextInput, Button } from 'react-native';
+import { StyleSheet, Text, View, TextInput, Button, KeyboardType } from 'react-native';
 
 export default function App() {
-  const [name, setName] = useState();
-  const [prenom, setPrenom] = useState();
-  const [age, setAge] = useState();
+  // var
+  const obj = [
+    {
+      id: 1, name: "Stan", age: 15
+    }, 
+    {
+      id: 2, name: "Daouda", age: 150
+    }, 
+    {
+      id: 3, name: "Stive", age: 14    }, 
+    {
+      id: 4, name: "Michaelle", age: 1020
+    },  {
+      id: 5, name: "Close", age: 30
+    }, 
+    {
+      id: 6, name: "Sarah", age: 125
+    }
+  ]
+  const [family, setFamily] = useState(obj);
+ // console.log(family); 
+ 
+
   return (
     <View style={styles.wrapper}>
-    <Text style={styles.text}>Nom : {name} </Text>
-     <TextInput style={styles.TextInput}
-     value={name} onChangeText={name=> setName(name)}
-    placeholder="Indiquer votre nom : CAMARA"
-    />
-    {/* prenom */}
-    <Text style={styles.text}>Prénom : {prenom} </Text>
-     <TextInput style={styles.TextInput}
-     value={prenom} onChangeText={prenom=> setPrenom(prenom)}
-    placeholder="Indiquer votre prénom : CAMARA"
-    />
-    {/* age */}
-    {/* paramrtrer les inputs aussi : si num : nomnbre etc : à voir  */}
-    <Text style={styles.text}>Age : {age} </Text>
-     <TextInput style={styles.TextInput}
-     value={age} onChangeText={age=> setAge(age)}
-    placeholder="Indiquer votre age : 20 "
-    />
+      {/* methode map pour afficher les datas json  */}
+      {
+      family.map(member=>{
+        return (
+          <View key={member.id} style={styles.viewlist}>
+            
+            <Text style={styles.text}> 
+              <Text style={styles.textbold}>Nom : </Text>
+             {member.name}</Text>
+            <Text style={styles.text}>
+               <Text style={styles.textbold}>Age :</Text>
+                {member.age}
+            </Text>
+           
+          </View>
+        )
+      })
+      }
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  wrapper: {
-  marginTop: 50, 
-  // backgroundColor: "red", 
-  alignItems: "center", 
-  height: 200, 
-  },
-  TextInput: {
-    height:40, 
-    borderColor: "grey", 
-    borderWidth: 1, 
-    padding: 10, 
-    margin:9, width: "90%"
-  }, 
-  text:{
-    fontSize: 20, 
-    fontWeight:"bold"
+ wrapper:{
+  padding: 20, 
 
-  }
+ }, 
+ viewlist:{
+  marginTop: 30, 
+  backgroundColor: "purple", padding: 19, 
+ 
+ }
+ , 
+ text:{
+  color: "white", 
+  fontSize:20 
+ }, 
+ textbold:{
+  fontWeight: "bold"
+ }
 });
